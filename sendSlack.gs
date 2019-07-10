@@ -15,7 +15,7 @@ function callSlackWebhook(applicant) {
     })
   };
   var response = UrlFetchApp.fetch(SLACK_WEBHOOK_URL, params);
-  Logger.log("response:", response);
+  //Logger.log("response:", response);
   return response;
 }
 
@@ -28,7 +28,7 @@ function getSlackUserId(applicant) {
   var slackURLBase = "https://slack.com/api"
   var slackUserListAPI = slackURLBase + "/users.list?token=" + SLACK_ACCESS_TOKEN
   
-  var res = UrlFetchApp.fetch(slackUserListAPI) // kanmu.esa.io に登録されているユーザの一覧を取得する API にアクセスする
+  var res = UrlFetchApp.fetch(slackUserListAPI) 
   var data = JSON.parse(res);  // APIから得られたデータを連想配列に変換する
   
   //Logger.log(data.members)
@@ -39,7 +39,7 @@ function getSlackUserId(applicant) {
       userid = data.members[i].id;
     }
   }
-  Logger.log(userid);
+  //Logger.log(userid);
   return userid;
 }
   
