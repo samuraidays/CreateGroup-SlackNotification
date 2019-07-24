@@ -5,16 +5,18 @@ function onFormSubmit(e) {
   //  var json = e.namedValues;
   //  Logger.log(json); //=> { 'Timestamp': ['2015/05/04 15:00'], 'First Name': ['Jane'], 'Last Name': ['Doe'] }
   
-  var applicant=array[1];
-  var groupID=array[3];
-  var desc=array[4];
-  var memberemail=array[5];
-  
+  var applicant=array[1]; // 申請者
+  var type=array[2]; // 追加 or 削除
+  var groupID=array[3]; // グループアドレス
+  var desc=array[4]; // 説明
+  var memberemail=array[5]; // オーナー
+    
   // Group作成
   var errtx = createGroup(groupID, desc);
+  // エラーをSlackへ通知
   if(errtx !== 'ok'){
     callSlackWebhook(applicant, errtx);
-    return ;
+    return;
   }
   
   // Groupの詳細設定
