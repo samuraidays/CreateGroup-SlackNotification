@@ -12,7 +12,7 @@ function onFormSubmit(e) {
       createGroupFlow(formdata);
       break;
     case "削除":
-      // delGroup(groupID);
+      deleteGroupFlow(formdata);
       break;
     default:
       break;
