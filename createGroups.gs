@@ -6,7 +6,7 @@ function createGroup(groupID, desc) {
     return 'ok';
   } catch(e) {
     // エラーメッセージを返す
-    var error = 'グループ作成に失敗しました。このメッセージを#corp_itに投げてください' + '\n' + 'name：'　+ e.name + '\n' + 'message：'　+ e.message
+    var error = groupID + 'グループ作成に失敗しました。このメッセージを#corp_itに投げてください' + '\n' + 'name：'　+ e.name + '\n' + 'message：'　+ e.message
     return error;
   }
 }

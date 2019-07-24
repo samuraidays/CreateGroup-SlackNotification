@@ -51,7 +51,7 @@ function getSlackUserId(applicant) {
       userid = data.members[i].id;
       break;
     } else {
-      userid = none;
+      userid = 'none';
     }
   }
   //Logger.log(userid);
