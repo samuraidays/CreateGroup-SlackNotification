@@ -1,5 +1,5 @@
 // Slackのwebhookにリクエストを送る
-function callSlackWebhook(applicant) {
+function callSlackWebhook(applicant, messages) {
   var sp = PropertiesService.getScriptProperties();
   var SLACK_WEBHOOK_URL = sp.getProperty('SLACK_WEBHOOK_URL');
   var suserid = getSlackUserId(applicant);
@@ -10,12 +10,11 @@ function callSlackWebhook(applicant) {
     contentType: 'application/json',
     payload: JSON.stringify({
       channel: suserid, // 通知するチャンネル
-      text:'テストん',
+      text: messages,
       link_names: 1,
     })
   };
   var response = UrlFetchApp.fetch(SLACK_WEBHOOK_URL, params);
-  //Logger.log("response:", response);
   return response;
 }
 
